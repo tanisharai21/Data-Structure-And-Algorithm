@@ -12,10 +12,10 @@ var subarraySum = function(nums, k) {
         if(currSum === k){
             result++;
         }
-        if(prefixSum.has(currSum-k)){
-            result += prefixSum.get(currSum-k);
+        if(prefixSum.has(currSum - k)){
+            result += prefixSum.get(currSum - k);
         }
-        prefixSum.set(currSum,(prefixSum.get(currSum) || 0)+1);
+        prefixSum.set(currSum, (prefixSum.get(currSum) || 0)+1);
     }
     return result;
 };
