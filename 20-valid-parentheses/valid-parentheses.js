@@ -3,22 +3,21 @@
  * @return {boolean}
  */
 var isValid = function(s) {
+    //create a empty stack 
     let stack = [];
-    for(let c of s){
-        //push all opening characters in the stack
-        if(c === '(' || c === '{' || c === '['){
-            stack.push(c);
+    //iterate to string
+    for(let ch of s){
+        //check the opening bracket
+        if(ch === '(' || ch === '{' || ch === '['){
+            stack.push(ch);
         }
-        //check all closing characters
-        else if(c === ')'|| c === '}' || c === ']'){
-            if (stack.length === 0) return false;
-            let top = stack[stack.length-1];
-            if((c === ')' && top !== '(') ||
-               (c === '}' && top !== '{') ||
-               (c === ']' && top !== '[')) {
+        else{
+            //edge case
+            if(stack.length === 0) return false;
+            let top = stack.pop();
+            if((ch === ')' && top !== '(') || (ch === '}' && top !== '{') || (ch === ']' && top !== '[')){
                 return false;
-               }
-               stack.pop();
+            }
         }
     }
     return stack.length === 0;
