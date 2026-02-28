@@ -3,12 +3,13 @@
  * @return {void} Do not return anything, modify s in-place instead.
  */
 var reverseString = function(s) {
-    let stack =[];
-    for(let ch of s){
-        stack.push(ch);
-    }
-    for(let i=0;i<s.length;i++){
-        s[i] = stack.pop();
+    //using two pointers
+    let left = 0;
+    let right = s.length-1;
+    while(left<right){
+        [s[left],s[right]] = [s[right],s[left]];
+        left++;
+        right--;
     }
     return s;
 };
