@@ -10,26 +10,13 @@
  * @return {ListNode}
  */
 var reverseList = function(head) {
-    let stack = [];
-    let temp = head;
-
-    //push all the nodes in temporary stack
-    while(temp !== null){
-        stack.push(temp);
-        temp = temp.next;
+    let prev = null;
+    let current = head;
+    while(current !== null){
+        let next = current.next; //store next node
+        current.next = prev; //reverse pointer
+        prev = current; //move prev
+        current = next; //move current
     }
-
-    //make the last node as a new head of the linked list
-    if(stack.length > 0){
-        head = stack.pop();
-        temp = head;
-
-    //pop all the elements in original stack
-    while(stack.length > 0){
-        temp.next = stack.pop();
-        temp = temp.next;
-    }
-    temp.next = null;
-    }
-    return head;
+    return prev;
 };
