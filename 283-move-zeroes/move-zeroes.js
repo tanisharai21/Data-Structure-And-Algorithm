@@ -4,8 +4,8 @@
  */
 var moveZeroes = function(nums) {
     let index = 0;
-    //traverse in array to find nnon zero
-    for(let i = 0;i<nums.length;i++){
+    //find non zero 
+    for(let i=0;i<nums.length;i++){
         if(nums[i] !== 0){
             nums[index] = nums[i];
             index++;
