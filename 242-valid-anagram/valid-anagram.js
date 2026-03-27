@@ -6,11 +6,11 @@
 var isAnagram = function(s, t) {
     if(s.length !== t.length) return false;
     let map = new Map();
-    //count character of s
+    //count the frequency
     for(let ch of s){
         map.set(ch, (map.get(ch) || 0)+1);
     }
-    //decrease count
+    //check the chanracter in 2nd string
     for(let ch of t){
         if(!map.has(ch)) return false;
         map.set(ch, map.get(ch)-1);
